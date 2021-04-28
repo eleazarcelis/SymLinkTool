@@ -31,20 +31,24 @@ namespace SymLinkTool
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.btnOpenSource = new System.Windows.Forms.Button();
             this.txtSource = new System.Windows.Forms.TextBox();
+            this.lblBGSource = new System.Windows.Forms.Label();
+            this.btnOpenSource = new System.Windows.Forms.Button();
             this.chkSource = new System.Windows.Forms.CheckedListBox();
-            this.btnOpenTarget = new System.Windows.Forms.Button();
+            this.lsTarget = new System.Windows.Forms.ListBox();
             this.txtTarget = new System.Windows.Forms.TextBox();
+            this.btnOpenTarget = new System.Windows.Forms.Button();
+            this.lblBGTarget = new System.Windows.Forms.Label();
             this.pbMain = new System.Windows.Forms.ProgressBar();
             this.btnStart = new System.Windows.Forms.Button();
             this.lbOutput = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.fdbMain = new System.Windows.Forms.FolderBrowserDialog();
-            this.bntChangeTheme = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblTargetBackground = new System.Windows.Forms.Label();
-            this.lsTarget = new System.Windows.Forms.ListBox();
+            this.btnChangeTheme = new System.Windows.Forms.Button();
+            this.btnMaxRest = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnMin = new System.Windows.Forms.Button();
+            this.lblTitle = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -56,13 +60,13 @@ namespace SymLinkTool
             this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainer1.Location = new System.Drawing.Point(12, 67);
+            this.splitContainer1.Location = new System.Drawing.Point(12, 94);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.txtSource);
-            this.splitContainer1.Panel1.Controls.Add(this.label1);
+            this.splitContainer1.Panel1.Controls.Add(this.lblBGSource);
             this.splitContainer1.Panel1.Controls.Add(this.btnOpenSource);
             this.splitContainer1.Panel1.Controls.Add(this.chkSource);
             // 
@@ -71,11 +75,36 @@ namespace SymLinkTool
             this.splitContainer1.Panel2.Controls.Add(this.lsTarget);
             this.splitContainer1.Panel2.Controls.Add(this.txtTarget);
             this.splitContainer1.Panel2.Controls.Add(this.btnOpenTarget);
-            this.splitContainer1.Panel2.Controls.Add(this.lblTargetBackground);
+            this.splitContainer1.Panel2.Controls.Add(this.lblBGTarget);
             this.splitContainer1.Size = new System.Drawing.Size(766, 512);
             this.splitContainer1.SplitterDistance = 358;
             this.splitContainer1.TabIndex = 999;
             this.splitContainer1.TabStop = false;
+            // 
+            // txtSource
+            // 
+            this.txtSource.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSource.BackColor = System.Drawing.SystemColors.Control;
+            this.txtSource.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSource.Location = new System.Drawing.Point(6, 7);
+            this.txtSource.Margin = new System.Windows.Forms.Padding(0);
+            this.txtSource.Name = "txtSource";
+            this.txtSource.Size = new System.Drawing.Size(324, 13);
+            this.txtSource.TabIndex = 2;
+            this.txtSource.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSource_KeyDown);
+            // 
+            // lblBGSource
+            // 
+            this.lblBGSource.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblBGSource.BackColor = System.Drawing.SystemColors.Control;
+            this.lblBGSource.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblBGSource.Location = new System.Drawing.Point(3, 3);
+            this.lblBGSource.Name = "lblBGSource";
+            this.lblBGSource.Size = new System.Drawing.Size(327, 20);
+            this.lblBGSource.TabIndex = 9999;
+            this.lblBGSource.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnOpenSource
             // 
@@ -94,19 +123,6 @@ namespace SymLinkTool
             this.btnOpenSource.UseVisualStyleBackColor = false;
             this.btnOpenSource.Click += new System.EventHandler(this.btnOpenSource_Click);
             // 
-            // txtSource
-            // 
-            this.txtSource.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSource.BackColor = System.Drawing.SystemColors.Control;
-            this.txtSource.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSource.Location = new System.Drawing.Point(6, 7);
-            this.txtSource.Margin = new System.Windows.Forms.Padding(0);
-            this.txtSource.Name = "txtSource";
-            this.txtSource.Size = new System.Drawing.Size(324, 12);
-            this.txtSource.TabIndex = 2;
-            this.txtSource.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSource_KeyDown);
-            // 
             // chkSource
             // 
             this.chkSource.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -122,6 +138,33 @@ namespace SymLinkTool
             this.chkSource.TabIndex = 6;
             this.chkSource.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.chkSource_ItemCheck);
             this.chkSource.SelectedIndexChanged += new System.EventHandler(this.chkSource_SelectedIndexChanged);
+            // 
+            // lsTarget
+            // 
+            this.lsTarget.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lsTarget.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lsTarget.Enabled = false;
+            this.lsTarget.FormattingEnabled = true;
+            this.lsTarget.Location = new System.Drawing.Point(6, 32);
+            this.lsTarget.Name = "lsTarget";
+            this.lsTarget.Size = new System.Drawing.Size(395, 481);
+            this.lsTarget.TabIndex = 7;
+            // 
+            // txtTarget
+            // 
+            this.txtTarget.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTarget.BackColor = System.Drawing.SystemColors.Control;
+            this.txtTarget.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTarget.Enabled = false;
+            this.txtTarget.Location = new System.Drawing.Point(9, 7);
+            this.txtTarget.Name = "txtTarget";
+            this.txtTarget.Size = new System.Drawing.Size(366, 13);
+            this.txtTarget.TabIndex = 3;
+            this.txtTarget.EnabledChanged += new System.EventHandler(this.txtTarget_EnabledChanged);
+            this.txtTarget.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTarget_KeyDown);
             // 
             // btnOpenTarget
             // 
@@ -140,25 +183,23 @@ namespace SymLinkTool
             this.btnOpenTarget.UseVisualStyleBackColor = false;
             this.btnOpenTarget.Click += new System.EventHandler(this.btnOpenTarget_Click);
             // 
-            // txtTarget
+            // lblBGTarget
             // 
-            this.txtTarget.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.lblBGTarget.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTarget.BackColor = System.Drawing.SystemColors.Control;
-            this.txtTarget.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTarget.Enabled = false;
-            this.txtTarget.Location = new System.Drawing.Point(9, 7);
-            this.txtTarget.Name = "txtTarget";
-            this.txtTarget.Size = new System.Drawing.Size(366, 12);
-            this.txtTarget.TabIndex = 3;
-            this.txtTarget.EnabledChanged += new System.EventHandler(this.txtTarget_EnabledChanged);
-            this.txtTarget.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTarget_KeyDown);
+            this.lblBGTarget.BackColor = System.Drawing.SystemColors.Control;
+            this.lblBGTarget.Enabled = false;
+            this.lblBGTarget.Location = new System.Drawing.Point(6, 3);
+            this.lblBGTarget.Name = "lblBGTarget";
+            this.lblBGTarget.Size = new System.Drawing.Size(369, 20);
+            this.lblBGTarget.TabIndex = 99999;
+            this.lblBGTarget.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pbMain
             // 
             this.pbMain.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbMain.Location = new System.Drawing.Point(43, 592);
+            this.pbMain.Location = new System.Drawing.Point(43, 619);
             this.pbMain.Name = "pbMain";
             this.pbMain.Size = new System.Drawing.Size(735, 23);
             this.pbMain.TabIndex = 99;
@@ -171,7 +212,7 @@ namespace SymLinkTool
             this.btnStart.Enabled = false;
             this.btnStart.FlatAppearance.BorderSize = 0;
             this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStart.Location = new System.Drawing.Point(656, 11);
+            this.btnStart.Location = new System.Drawing.Point(656, 38);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(58, 49);
             this.btnStart.TabIndex = 5;
@@ -184,9 +225,9 @@ namespace SymLinkTool
             this.lbOutput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbOutput.BackColor = System.Drawing.SystemColors.Control;
-            this.lbOutput.Location = new System.Drawing.Point(12, 11);
+            this.lbOutput.Location = new System.Drawing.Point(12, 26);
             this.lbOutput.Name = "lbOutput";
-            this.lbOutput.Size = new System.Drawing.Size(638, 49);
+            this.lbOutput.Size = new System.Drawing.Size(638, 61);
             this.lbOutput.TabIndex = 0;
             this.lbOutput.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -197,7 +238,7 @@ namespace SymLinkTool
             this.btnCancel.Enabled = false;
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Location = new System.Drawing.Point(720, 11);
+            this.btnCancel.Location = new System.Drawing.Point(720, 38);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(58, 49);
             this.btnCancel.TabIndex = 1000;
@@ -208,59 +249,87 @@ namespace SymLinkTool
             // 
             this.fdbMain.Description = "Directorio origen";
             // 
-            // bntChangeTheme
+            // btnChangeTheme
             // 
-            this.bntChangeTheme.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.bntChangeTheme.AutoEllipsis = true;
-            this.bntChangeTheme.BackColor = System.Drawing.SystemColors.Control;
-            this.bntChangeTheme.BackgroundImage = global::SymLinkTool.Properties.Resources.darkmode;
-            this.bntChangeTheme.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.bntChangeTheme.FlatAppearance.BorderSize = 0;
-            this.bntChangeTheme.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bntChangeTheme.Font = new System.Drawing.Font("Consolas", 4F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bntChangeTheme.Location = new System.Drawing.Point(12, 592);
-            this.bntChangeTheme.Name = "bntChangeTheme";
-            this.bntChangeTheme.Size = new System.Drawing.Size(23, 23);
-            this.bntChangeTheme.TabIndex = 8;
-            this.bntChangeTheme.UseVisualStyleBackColor = false;
-            this.bntChangeTheme.Click += new System.EventHandler(this.bntChangeTheme_Click);
+            this.btnChangeTheme.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnChangeTheme.AutoEllipsis = true;
+            this.btnChangeTheme.BackColor = System.Drawing.SystemColors.Control;
+            this.btnChangeTheme.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnChangeTheme.FlatAppearance.BorderSize = 0;
+            this.btnChangeTheme.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChangeTheme.Font = new System.Drawing.Font("Consolas", 4F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangeTheme.Location = new System.Drawing.Point(12, 619);
+            this.btnChangeTheme.Name = "btnChangeTheme";
+            this.btnChangeTheme.Size = new System.Drawing.Size(23, 23);
+            this.btnChangeTheme.TabIndex = 8;
+            this.btnChangeTheme.UseVisualStyleBackColor = false;
+            this.btnChangeTheme.Click += new System.EventHandler(this.bntChangeTheme_Click);
             // 
-            // label1
+            // btnMaxRest
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.btnMaxRest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMaxRest.BackColor = System.Drawing.SystemColors.Control;
+            this.btnMaxRest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnMaxRest.FlatAppearance.BorderSize = 0;
+            this.btnMaxRest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaxRest.Location = new System.Drawing.Point(732, 1);
+            this.btnMaxRest.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.btnMaxRest.Name = "btnMaxRest";
+            this.btnMaxRest.Size = new System.Drawing.Size(24, 24);
+            this.btnMaxRest.TabIndex = 1001;
+            this.btnMaxRest.TabStop = false;
+            this.btnMaxRest.Text = "R";
+            this.btnMaxRest.UseVisualStyleBackColor = false;
+            this.btnMaxRest.Click += new System.EventHandler(this.btnMaxRest_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.BackColor = System.Drawing.SystemColors.Control;
+            this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Location = new System.Drawing.Point(757, 1);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(24, 24);
+            this.btnClose.TabIndex = 1002;
+            this.btnClose.TabStop = false;
+            this.btnClose.Text = "x";
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnMin
+            // 
+            this.btnMin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMin.BackColor = System.Drawing.SystemColors.Control;
+            this.btnMin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnMin.FlatAppearance.BorderSize = 0;
+            this.btnMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMin.Location = new System.Drawing.Point(707, 1);
+            this.btnMin.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.btnMin.Name = "btnMin";
+            this.btnMin.Size = new System.Drawing.Size(24, 24);
+            this.btnMin.TabIndex = 1003;
+            this.btnMin.TabStop = false;
+            this.btnMin.Text = "M";
+            this.btnMin.UseVisualStyleBackColor = false;
+            this.btnMin.Click += new System.EventHandler(this.btnMin_Click);
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.BackColor = System.Drawing.SystemColors.Control;
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Location = new System.Drawing.Point(3, 3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(327, 20);
-            this.label1.TabIndex = 9999;
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblTargetBackground
-            // 
-            this.lblTargetBackground.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTargetBackground.BackColor = System.Drawing.SystemColors.Control;
-            this.lblTargetBackground.Enabled = false;
-            this.lblTargetBackground.Location = new System.Drawing.Point(6, 3);
-            this.lblTargetBackground.Name = "lblTargetBackground";
-            this.lblTargetBackground.Size = new System.Drawing.Size(369, 20);
-            this.lblTargetBackground.TabIndex = 99999;
-            this.lblTargetBackground.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lsTarget
-            // 
-            this.lsTarget.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lsTarget.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lsTarget.Enabled = false;
-            this.lsTarget.FormattingEnabled = true;
-            this.lsTarget.Location = new System.Drawing.Point(6, 32);
-            this.lsTarget.Name = "lsTarget";
-            this.lsTarget.Size = new System.Drawing.Size(395, 481);
-            this.lsTarget.TabIndex = 7;
+            this.lblTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblTitle.Font = new System.Drawing.Font("Consolas", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(0, 1);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(789, 24);
+            this.lblTitle.TabIndex = 1004;
+            this.lblTitle.Text = "SymLink Tool";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblTitle_MouseDown);
             // 
             // MainForm
             // 
@@ -268,19 +337,26 @@ namespace SymLinkTool
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(790, 627);
-            this.Controls.Add(this.bntChangeTheme);
+            this.ClientSize = new System.Drawing.Size(790, 654);
+            this.Controls.Add(this.btnMin);
+            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.btnMaxRest);
+            this.Controls.Add(this.lblTitle);
+            this.Controls.Add(this.btnChangeTheme);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.lbOutput);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.pbMain);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "SymLink Tool";
             this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
+            this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -300,10 +376,14 @@ namespace SymLinkTool
         private System.Windows.Forms.Button btnOpenSource;
         private System.Windows.Forms.Button btnOpenTarget;
         private System.Windows.Forms.FolderBrowserDialog fdbMain;
-        private System.Windows.Forms.Button bntChangeTheme;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblTargetBackground;
+        private System.Windows.Forms.Button btnChangeTheme;
+        private System.Windows.Forms.Label lblBGSource;
+        private System.Windows.Forms.Label lblBGTarget;
         private System.Windows.Forms.ListBox lsTarget;
+        private System.Windows.Forms.Button btnMaxRest;
+        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Button btnMin;
+        private System.Windows.Forms.Label lblTitle;
     }
 }
 
